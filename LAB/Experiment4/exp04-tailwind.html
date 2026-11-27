@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Responsive Page — Experiment 04</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Task 6: Tailwind Navbar -->
+  <nav class="bg-gray-900 text-white sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+      <a href="#" class="text-xl font-bold">MySite</a>
+      <button id="twMenuBtn" type="button"
+              class="md:hidden border border-gray-700 rounded px-3 py-1 text-sm hover:bg-gray-800"
+              aria-expanded="false" aria-controls="twNavLinks" aria-label="Toggle navigation">
+        Menu
+      </button>
+      <ul id="twNavLinks" class="hidden w-full flex-col gap-3 pt-2 md:pt-0 md:w-auto md:flex md:flex-row md:items-center md:gap-6">
+        <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+        <li><a href="#about" class="hover:text-gray-300">About</a></li>
+        <li><a href="#services" class="hover:text-gray-300">Services</a></li>
+        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+        <li><a href="exp04-bootstrap.html" class="text-sky-400 hover:text-sky-300 font-medium">Bootstrap Version →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Task 7: Tailwind Hero Section -->
+  <section id="home" class="max-w-6xl mx-auto px-4 py-16 flex flex-col lg:flex-row items-center gap-12">
+    <div id="about" class="lg:w-1/2">
+      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        Welcome to MySite
+      </h1>
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        Tailwind lets you build custom designs by composing utility classes.
+        Every style is right here in the HTML — no separate CSS file needed.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#services" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          Get Started
+        </a>
+        <a href="#contact" class="border-2 border-gray-900 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+          Learn More
+        </a>
+      </div>
+    </div>
+    <div class="lg:w-1/2 w-full">
+      <img src="assets/hero.svg" class="w-full rounded-xl shadow-lg" alt="Responsive web design illustration">
+    </div>
+  </section>
+
+  <!-- Task 8: Tailwind Card Grid -->
+  <section id="services" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+        <h3 class="text-xl font-semibold text-blue-600 mb-3">Web Design</h3>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Beautiful, responsive websites built with modern frameworks and best practices.
+        </p>
+        <a href="#contact" class="text-blue-600 font-semibold hover:underline">Learn More →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+        <h3 class="text-xl font-semibold text-green-600 mb-3">Development</h3>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Full-stack development with Node.js, Python, and cloud deployment.
+        </p>
+        <a href="#contact" class="text-green-600 font-semibold hover:underline">Learn More →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+        <h3 class="text-xl font-semibold text-red-600 mb-3">SEO</h3>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Optimize your site for search engines and drive organic traffic growth.
+        </p>
+        <a href="#contact" class="text-red-600 font-semibold hover:underline">Learn More →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Exercise 2: Responsive Contact Form using Tailwind Utilities -->
+  <section id="contact" class="max-w-3xl mx-auto px-4 py-12">
+    <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+      <h2 class="text-3xl font-bold text-center mb-2">Contact Us</h2>
+      <p class="text-gray-600 text-center mb-6">Have a project in mind? Send us a message below.</p>
+      <form id="tailwindContactForm" class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="twName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <input type="text" id="twName" placeholder="John Doe" required
+                   class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label for="twEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <input type="email" id="twEmail" placeholder="john@example.com" required
+                   class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+        <div>
+          <label for="twSubject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+          <input type="text" id="twSubject" placeholder="Project inquiry" required
+                 class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label for="twMessage" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+          <textarea id="twMessage" rows="4" placeholder="Tell us about your project..." required
+                    class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+        <button type="submit"
+                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          Send Message
+        </button>
+      </form>
+      <div id="twFormAlert" class="hidden mt-4 p-3 rounded-lg bg-green-100 border border-green-300 text-green-800 text-sm">
+        Thank you! Your message has been recorded in this Tailwind CSS demo.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-4 mt-8">
+    <p>&copy; 2026 MySite — Built with Tailwind CSS</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('twMenuBtn');
+    const navLinks = document.getElementById('twNavLinks');
+    menuBtn.addEventListener('click', function () {
+      const isHidden = navLinks.classList.contains('hidden');
+      navLinks.classList.toggle('hidden');
+      navLinks.classList.toggle('flex');
+      menuBtn.setAttribute('aria-expanded', String(isHidden));
+    });
+
+    document.getElementById('tailwindContactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('twFormAlert').classList.remove('hidden');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

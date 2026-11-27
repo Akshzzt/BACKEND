@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experiment 1: Comprehensive interactive showcase of all standard HTML5 elements.">
+  <meta name="author" content="HTML5 Lab Experiment 1">
+  <title>Experiment 1: Complete HTML5 Elements Reference &amp; Showcase</title>
+  <base target="_self">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='41' fill='%2338bdf8' font-family='monospace' font-size='26' font-weight='bold' text-anchor='middle'%3E%26lt;5%26gt;%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Demonstrates the <style> element alongside external <link> stylesheets */
+    .inline-style-demo {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <noscript>
+    <div class="noscript-banner" role="alert">
+      JavaScript is disabled. This page rendered using the <code>&lt;noscript&gt;</code> fallback; all static HTML5 elements remain functional.
+    </div>
+  </noscript>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <hgroup>
+        <p class="eyebrow">Backend Development Lab &bull; Experiment 1</p>
+        <h1>All HTML5 Elements Showcase</h1>
+        <p class="subtitle">A semantic, interactive living reference implementing every standard HTML5 element across all 12 specification categories.</p>
+      </hgroup>
+
+      <div class="stats-bar">
+        <span class="stat-pill">Detected Unique Tags: <strong id="tag-count">...</strong></span>
+        <span class="stat-pill">Sections: <strong>12</strong></span>
+      </div>
+
+      <search class="filter-bar" aria-label="Filter HTML5 sections">
+        <label for="section-filter" class="sr-only">Filter sections or tags</label>
+        <input id="section-filter" type="search" placeholder="Filter by element or category (e.g. dialog, table, ruby, form)..." autocomplete="off">
+        <button id="clear-filter" type="button" class="btn-secondary">Clear</button>
+      </search>
+
+      <nav class="main-nav" aria-label="Element categories">
+        <ul>
+          <li><a href="#metadata">1. Metadata</a></li>
+          <li><a href="#sectioning">2. Sectioning</a></li>
+          <li><a href="#text-content">3. Text &amp; Lists</a></li>
+          <li><a href="#inline-semantics">4. Inline Text</a></li>
+          <li><a href="#edits">5. Edits</a></li>
+          <li><a href="#multimedia">6. Multimedia</a></li>
+          <li><a href="#embedded">7. Embedded</a></li>
+          <li><a href="#graphics-math">8. SVG &amp; MathML</a></li>
+          <li><a href="#scripting">9. Canvas &amp; Templates</a></li>
+          <li><a href="#tables">10. Tables</a></li>
+          <li><a href="#forms">11. Forms</a></li>
+          <li><a href="#interactive">12. Interactive</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container layout-grid">
+    <div class="content-column">
+
+      <!-- 1. Document Metadata & Root -->
+      <section id="metadata" class="card" data-tags="html head title base link meta style script noscript doctype">
+        <header class="section-header">
+          <h2>1. Main Root &amp; Document Metadata</h2>
+          <p class="tag-list"><code>&lt;html&gt;</code> <code>&lt;head&gt;</code> <code>&lt;title&gt;</code> <code>&lt;base&gt;</code> <code>&lt;link&gt;</code> <code>&lt;meta&gt;</code> <code>&lt;style&gt;</code> <code>&lt;script&gt;</code> <code>&lt;noscript&gt;</code></p>
+        </header>
+        <p class="inline-style-demo">
+          This document begins with the HTML5 <code>&lt;!DOCTYPE html&gt;</code> declaration and root <code>&lt;html lang="en"&gt;</code>. Its <code>&lt;head&gt;</code> configures UTF-8 encoding and viewport scaling with <code>&lt;meta&gt;</code>, links an SVG favicon and <code>styles.css</code> via <code>&lt;link&gt;</code>, sets default link targeting with <code>&lt;base target="_self"&gt;</code>, defines this left-border accent inside <code>&lt;style&gt;</code>, loads <code>script.js</code> with <code>&lt;script defer&gt;</code>, and provides a <code>&lt;noscript&gt;</code> fallback banner.
+        </p>
+      </section>
+
+      <!-- 2. Content Sectioning -->
+      <section id="sectioning" class="card" data-tags="body header nav main article section aside footer h1 h2 h3 h4 h5 h6 hgroup address search">
+        <header class="section-header">
+          <h2>2. Content Sectioning &amp; Headings</h2>
+          <p class="tag-list"><code>&lt;body&gt;</code> <code>&lt;header&gt;</code> <code>&lt;nav&gt;</code> <code>&lt;main&gt;</code> <code>&lt;article&gt;</code> <code>&lt;section&gt;</code> <code>&lt;aside&gt;</code> <code>&lt;footer&gt;</code> <code>&lt;h1&gt;–&lt;h6&gt;</code> <code>&lt;hgroup&gt;</code> <code>&lt;address&gt;</code> <code>&lt;search&gt;</code></p>
+        </header>
+
+        <article class="demo-box">
+          <hgroup>
+            <h3>Heading Hierarchy inside an <code>&lt;article&gt;</code></h3>
+            <p>Subtitle paired with a heading using <code>&lt;hgroup&gt;</code>.</p>
+          </hgroup>
+          <div class="heading-ladder">
+            <h1>Heading Level 1 (<code>&lt;h1&gt;</code>)</h1>
+            <h2>Heading Level 2 (<code>&lt;h2&gt;</code>)</h2>
+            <h3>Heading Level 3 (<code>&lt;h3&gt;</code>)</h3>
+            <h4>Heading Level 4 (<code>&lt;h4&gt;</code>)</h4>
+            <h5>Heading Level 5 (<code>&lt;h5&gt;</code>)</h5>
+            <h6>Heading Level 6 (<code>&lt;h6&gt;</code>)</h6>
+          </div>
+          <footer>
+            <small>Article footer using <code>&lt;footer&gt;</code> inside <code>&lt;article&gt;</code>.</small>
+          </footer>
+        </article>
+      </section>
+
+      <!-- 3. Text Content & Lists -->
+      <section id="text-content" class="card" data-tags="blockquote dd div dl dt figcaption figure hr li menu ol p pre ul">
+        <header class="section-header">
+          <h2>3. Text Content, Figures &amp; Lists</h2>
+          <p class="tag-list"><code>&lt;p&gt;</code> <code>&lt;div&gt;</code> <code>&lt;hr&gt;</code> <code>&lt;pre&gt;</code> <code>&lt;blockquote&gt;</code> <code>&lt;ol&gt;</code> <code>&lt;ul&gt;</code> <code>&lt;li&gt;</code> <code>&lt;dl&gt;</code> <code>&lt;dt&gt;</code> <code>&lt;dd&gt;</code> <code>&lt;figure&gt;</code> <code>&lt;figcaption&gt;</code> <code>&lt;menu&gt;</code></p>
+        </header>
+
+        <blockquote cite="https://html.spec.whatwg.org/">
+          <p>&ldquo;The HTML Living Standard defines a semantic vocabulary for structuring rich documents and web applications.&rdquo;</p>
+        </blockquote>
+
+        <hr>
+
+        <div class="three-col">
+          <div>
+            <h4>Ordered List (<code>&lt;ol&gt;</code>)</h4>
+            <ol>
+              <li>Parse HTML5 tokens</li>
+              <li>Build the DOM tree</li>
+              <li>Apply styles &amp; layout</li>
+            </ol>
+          </div>
+          <div>
+            <h4>Unordered List (<code>&lt;ul&gt;</code>)</h4>
+            <ul>
+              <li>Semantic landmarks</li>
+              <li>Accessible forms</li>
+              <li>Native multimedia</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Description List (<code>&lt;dl&gt;</code>)</h4>
+            <dl>
+              <dt><code>&lt;dt&gt;</code> Term</dt>
+              <dd><code>&lt;dd&gt;</code> Definition or description value.</dd>
+              <dt>HTML5</dt>
+              <dd>Fifth major revision of HyperText Markup Language.</dd>
+            </dl>
+          </div>
+        </div>
+
+        <h4>Action Toolbar (<code>&lt;menu&gt;</code>)</h4>
+        <menu class="action-menu">
+          <li><button type="button" class="btn-secondary" data-menu-action="Expand All">Expand All Details</button></li>
+          <li><button type="button" class="btn-secondary" data-menu-action="Collapse All">Collapse All Details</button></li>
+          <li><button type="button" class="btn-secondary" data-menu-action="Scroll Top">Back to Top</button></li>
+        </menu>
+
+        <h4>Preformatted Block (<code>&lt;pre&gt;</code>) &amp; Figure (<code>&lt;figure&gt;</code>)</h4>
+        <figure class="demo-figure">
+          <pre><code>function greet(name) {
+  return `Hello, ${name} from HTML5!`;
+}</code></pre>
+          <figcaption>Figure 1: Code snippet wrapped inside <code>&lt;figure&gt;</code> with a <code>&lt;figcaption&gt;</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- 4. Inline Text Semantics -->
+      <section id="inline-semantics" class="card" data-tags="a abbr b bdi bdo br cite code data dfn em i kbd mark q rp rt ruby s samp small span strong sub sup time u var wbr">
+        <header class="section-header">
+          <h2>4. Inline Text Semantics</h2>
+          <p class="tag-list"><code>&lt;a&gt;</code> <code>&lt;abbr&gt;</code> <code>&lt;b&gt;</code> <code>&lt;bdi&gt;</code> <code>&lt;bdo&gt;</code> <code>&lt;br&gt;</code> <code>&lt;cite&gt;</code> <code>&lt;code&gt;</code> <code>&lt;data&gt;</code> <code>&lt;dfn&gt;</code> <code>&lt;em&gt;</code> <code>&lt;i&gt;</code> <code>&lt;kbd&gt;</code> <code>&lt;mark&gt;</code> <code>&lt;q&gt;</code> <code>&lt;ruby&gt;</code> <code>&lt;rt&gt;</code> <code>&lt;rp&gt;</code> <code>&lt;s&gt;</code> <code>&lt;samp&gt;</code> <code>&lt;small&gt;</code> <code>&lt;span&gt;</code> <code>&lt;strong&gt;</code> <code>&lt;sub&gt;</code> <code>&lt;sup&gt;</code> <code>&lt;time&gt;</code> <code>&lt;u&gt;</code> <code>&lt;var&gt;</code> <code>&lt;wbr&gt;</code></p>
+        </header>
+
+        <ul class="inline-showcase">
+          <li><strong>Link &amp; Abbreviation:</strong> Visit <a href="#forms">Section 11</a> to learn about <abbr title="HyperText Markup Language 5">HTML5</abbr>.</li>
+          <li><strong>Emphasis &amp; Importance:</strong> Use <strong>&lt;strong&gt;</strong> for urgent importance, <em>&lt;em&gt;</em> for stress emphasis, <b>&lt;b&gt;</b> for keywords, and <i>&lt;i&gt;</i> for technical terms like <i>homo sapiens</i>.</li>
+          <li><strong>Definitions, Citations &amp; Quotes:</strong> <dfn>Semantics</dfn> means meaningful markup; as <cite>WHATWG HTML Standard</cite> states, <q>elements should be used according to their meaning</q>.</li>
+          <li><strong>Code, Keyboard &amp; Output:</strong> Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save <code>index.html</code>; variable <var>x</var> yields <samp>Status 200 OK</samp>.</li>
+          <li><strong>Data, Time &amp; Highlight:</strong> Product <data value="10501">SKU-10501</data> updated on <time datetime="2026-11-26">November 26, 2026</time> is <mark>in stock</mark>.</li>
+          <li><strong>Subscript, Superscript &amp; Edits:</strong> Water is H<sub>2</sub>O, Einstein&rsquo;s formula is E = mc<sup>2</sup>, price was <s>$99</s>, and spelling annotation uses <u>teh</u>.</li>
+          <li><strong>Bidirectional Text:</strong> User <bdi>إيمان</bdi> scored 98 pts; override: <bdo dir="rtl">HTML5 RTL</bdo>.</li>
+          <li><strong>Ruby Annotations:</strong> <ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp>字<rp>(</rp><rt>じ</rt><rp>)</rp></ruby> &amp; <ruby>HTML5<rp>(</rp><rt>HyperText</rt><rp>)</rp></ruby></li>
+          <li><strong>Line Break, Span &amp; Word Break:</strong> Line one<br>Line two with <span class="badge">styled &lt;span&gt;</span>, <small>fine print via &lt;small&gt;</small>, and wrap point: https://example.com/<wbr>lectures/<wbr>backend/<wbr>experiment-1.</li>
+        </ul>
+      </section>
+
+      <!-- 5. Demarcating Edits -->
+      <section id="edits" class="card" data-tags="del ins">
+        <header class="section-header">
+          <h2>5. Demarcating Edits</h2>
+          <p class="tag-list"><code>&lt;del&gt;</code> <code>&lt;ins&gt;</code></p>
+        </header>
+        <p>
+          Lab requirement update: Use <del datetime="2026-11-20" cite="#edits">XHTML 1.0 Strict framesets</del> <ins datetime="2026-11-26" cite="#edits">semantic HTML5 elements and ARIA landmarks</ins>.
+        </p>
+      </section>
+
+      <!-- 6. Image & Multimedia -->
+      <section id="multimedia" class="card" data-tags="area audio img map track video">
+        <header class="section-header">
+          <h2>6. Image Maps &amp; Multimedia</h2>
+          <p class="tag-list"><code>&lt;img&gt;</code> <code>&lt;map&gt;</code> <code>&lt;area&gt;</code> <code>&lt;audio&gt;</code> <code>&lt;video&gt;</code> <code>&lt;track&gt;</code></p>
+        </header>
+
+        <div class="media-grid">
+          <article class="demo-box">
+            <h3>Interactive Image Map (<code>&lt;img&gt;</code> + <code>&lt;map&gt;</code> + <code>&lt;area&gt;</code>)</h3>
+            <img src="assets/map-graphic.svg" alt="Interactive HTML5 Architecture Map" usemap="#html5-map" width="640" height="260" class="responsive-img">
+            <map name="html5-map">
+              <area shape="rect" coords="28,36,198,224" href="#sectioning" alt="Semantic Core" data-region="Semantic Core (Rectangle)">
+              <area shape="circle" coords="320,130,68" href="#multimedia" alt="Media &amp; DOM" data-region="Media &amp; DOM (Circle)">
+              <area shape="poly" coords="525,42,612,212,438,212" href="#forms" alt="Forms" data-region="Forms (Polygon)">
+            </map>
+            <p class="hint" id="map-status">Click any shape in the graphic above to inspect its <code>&lt;area&gt;</code> region.</p>
+          </article>
+
+          <article class="demo-box">
+            <h3>Audio Player (<code>&lt;audio&gt;</code> + <code>&lt;source&gt;</code>)</h3>
+            <audio controls preload="metadata">
+              <source src="assets/chime.wav" type="audio/wav">
+              Your browser does not support the HTML5 audio element.
+            </audio>
+            <p class="hint">Plays a locally generated C-major chord chime (<code>assets/chime.wav</code>).</p>
+          </article>
+
+          <article class="demo-box">
+            <h3>Video Player &amp; Captions (<code>&lt;video&gt;</code> + <code>&lt;track&gt;</code>)</h3>
+            <video id="demo-video" controls muted playsinline poster="assets/poster.svg" width="640" height="360">
+              <track kind="captions" src="assets/captions.vtt" srclang="en" label="English" default>
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="btn-row">
+              <button id="start-video-stream" type="button" class="btn-primary">Stream Live Canvas into &lt;video&gt;</button>
+            </div>
+            <p class="hint">Uses <code>poster="assets/poster.svg"</code>, WebVTT <code>&lt;track&gt;</code> subtitles, and live <code>canvas.captureStream()</code>.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 7. Embedded Content -->
+      <section id="embedded" class="card" data-tags="embed iframe object picture source">
+        <header class="section-header">
+          <h2>7. Embedded Content</h2>
+          <p class="tag-list"><code>&lt;picture&gt;</code> <code>&lt;source&gt;</code> <code>&lt;iframe&gt;</code> <code>&lt;embed&gt;</code> <code>&lt;object&gt;</code></p>
+        </header>
+
+        <div class="two-col">
+          <article class="demo-box">
+            <h3>Responsive <code>&lt;picture&gt;</code> &amp; <code>&lt;source&gt;</code></h3>
+            <picture>
+              <source media="(min-width: 600px)" srcset="assets/diagram.svg" type="image/svg+xml">
+              <img src="assets/diagram.svg" alt="SVG Resource loaded inside picture element" width="360" height="120" class="responsive-img">
+            </picture>
+          </article>
+
+          <article class="demo-box">
+            <h3>Sandboxed <code>&lt;iframe&gt;</code></h3>
+            <iframe src="assets/iframe-sample.html" title="Sample embedded HTML5 document" width="360" height="120" sandbox="allow-same-origin"></iframe>
+          </article>
+
+          <article class="demo-box">
+            <h3>External Plugin/SVG via <code>&lt;embed&gt;</code></h3>
+            <embed src="assets/diagram.svg" type="image/svg+xml" width="360" height="120">
+          </article>
+
+          <article class="demo-box">
+            <h3>Resource Container via <code>&lt;object&gt;</code></h3>
+            <object data="assets/diagram.svg" type="image/svg+xml" width="360" height="120">
+              Fallback content if the SVG object cannot be rendered.
+            </object>
+          </article>
+        </div>
+      </section>
+
+      <!-- 8. SVG & MathML -->
+      <section id="graphics-math" class="card" data-tags="svg math">
+        <header class="section-header">
+          <h2>8. Inline SVG &amp; MathML</h2>
+          <p class="tag-list"><code>&lt;svg&gt;</code> <code>&lt;math&gt;</code></p>
+        </header>
+
+        <div class="two-col">
+          <article class="demo-box">
+            <h3>Inline Vector Graphics (<code>&lt;svg&gt;</code>)</h3>
+            <svg viewBox="0 0 320 120" width="320" height="120" role="img" aria-label="Inline HTML5 SVG wave and shield">
+              <defs>
+                <linearGradient id="svgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#38bdf8"/>
+                  <stop offset="100%" stop-color="#a78bfa"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="316" height="116" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+              <path d="M 20 80 Q 90 20, 160 65 T 300 50" fill="none" stroke="url(#svgGrad)" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="160" cy="65" r="7" fill="#f472b6"/>
+              <text x="160" y="102" fill="#94a3b8" font-size="12" font-family="monospace" text-anchor="middle">Inline &lt;svg&gt; Bezier Curve</text>
+            </svg>
+          </article>
+
+          <article class="demo-box">
+            <h3>Mathematical Markup (<code>&lt;math&gt;</code>)</h3>
+            <p class="math-display">
+              <math display="block">
+                <mrow>
+                  <mi>x</mi>
+                  <mo>=</mo>
+                  <mfrac>
+                    <mrow>
+                      <mo>−</mo>
+                      <mi>b</mi>
+                      <mo>±</mo>
+                      <msqrt>
+                        <mrow>
+                          <msup><mi>b</mi><mn>2</mn></msup>
+                          <mo>−</mo>
+                          <mn>4</mn><mi>a</mi><mi>c</mi>
+                        </mrow>
+                      </msqrt>
+                    </mrow>
+                    <mrow>
+                      <mn>2</mn><mi>a</mi>
+                    </mrow>
+                  </mfrac>
+                </mrow>
+              </math>
+            </p>
+            <p class="hint">Quadratic formula rendered natively with HTML5 MathML.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 9. Scripting, Canvas & Web Components -->
+      <section id="scripting" class="card" data-tags="canvas slot template">
+        <header class="section-header">
+          <h2>9. Canvas, Templates &amp; Shadow DOM Slots</h2>
+          <p class="tag-list"><code>&lt;canvas&gt;</code> <code>&lt;template&gt;</code> <code>&lt;slot&gt;</code></p>
+        </header>
+
+        <div class="two-col">
+          <article class="demo-box">
+            <h3>2D Interactive Drawing (<code>&lt;canvas&gt;</code>)</h3>
+            <canvas id="wave-canvas" width="380" height="150">Fallback text for browsers without canvas support.</canvas>
+            <div class="btn-row">
+              <button id="toggle-canvas" type="button" class="btn-secondary">Pause / Resume Animation</button>
+            </div>
+          </article>
+
+          <article class="demo-box">
+            <h3>Web Components (<code>&lt;template&gt;</code> + <code>&lt;slot&gt;</code>)</h3>
+            <template id="badge-template">
+              <style>
+                .wc-card {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  padding: 0.45rem 0.75rem;
+                  border-radius: 999px;
+                  background: rgba(56, 189, 248, 0.14);
+                  border: 1px solid rgba(56, 189, 248, 0.45);
+                  color: #e0f2fe;
+                  font-size: 0.85rem;
+                }
+                .wc-label { font-weight: 700; color: #38bdf8; }
+              </style>
+              <span class="wc-card">
+                <span class="wc-label"><slot name="title">Default Slot</slot>:</span>
+                <span><slot>Slotted content</slot></span>
+              </span>
+            </template>
+
+            <div id="template-mount" class="slot-stack">
+              <html5-badge><span slot="title">Custom Element</span>Slotted via <code>&lt;slot&gt;</code></html5-badge>
+            </div>
+            <div class="btn-row">
+              <button id="clone-template" type="button" class="btn-primary">Clone &lt;template&gt; Item</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. Tables -->
+      <section id="tables" class="card" data-tags="caption col colgroup table tbody td tfoot th thead tr">
+        <header class="section-header">
+          <h2>10. Complete HTML5 Table Structure</h2>
+          <p class="tag-list"><code>&lt;table&gt;</code> <code>&lt;caption&gt;</code> <code>&lt;colgroup&gt;</code> <code>&lt;col&gt;</code> <code>&lt;thead&gt;</code> <code>&lt;tbody&gt;</code> <code>&lt;tfoot&gt;</code> <code>&lt;tr&gt;</code> <code>&lt;th&gt;</code> <code>&lt;td&gt;</code></p>
+        </header>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Table 1: HTML5 Specification Element Categories Overview</caption>
+            <colgroup>
+              <col class="col-category">
+              <col class="col-purpose">
+              <col class="col-count">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Primary Role</th>
+                <th scope="col">Elements</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Sectioning &amp; Layout</th>
+                <td>Semantic page regions &amp; landmarks</td>
+                <td>17</td>
+              </tr>
+              <tr>
+                <th scope="row">Inline &amp; Text</th>
+                <td>Prose, lists, annotations &amp; citations</td>
+                <td>43</td>
+              </tr>
+              <tr>
+                <th scope="row">Forms &amp; Interactive</th>
+                <td>User input, validation, meters &amp; dialogs</td>
+                <td>17</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">Total Standard Elements Covered on Page</th>
+                <td><strong>114</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <!-- 11. Forms & Controls -->
+      <section id="forms" class="card" data-tags="button datalist fieldset form input label legend meter optgroup option output progress select textarea">
+        <header class="section-header">
+          <h2>11. Forms, Input Types &amp; Meters</h2>
+          <p class="tag-list"><code>&lt;form&gt;</code> <code>&lt;fieldset&gt;</code> <code>&lt;legend&gt;</code> <code>&lt;label&gt;</code> <code>&lt;input&gt;</code> <code>&lt;textarea&gt;</code> <code>&lt;select&gt;</code> <code>&lt;optgroup&gt;</code> <code>&lt;option&gt;</code> <code>&lt;datalist&gt;</code> <code>&lt;button&gt;</code> <code>&lt;output&gt;</code> <code>&lt;progress&gt;</code> <code>&lt;meter&gt;</code></p>
+        </header>
+
+        <form id="showcase-form" action="#" method="get">
+          <fieldset>
+            <legend>Text, Contact &amp; Credential Inputs</legend>
+            <div class="form-grid">
+              <label>Text:
+                <input type="text" name="fullname" placeholder="Ada Lovelace" required>
+              </label>
+              <label>Password:
+                <input type="password" name="secret" placeholder="••••••••" autocomplete="off">
+              </label>
+              <label>Email:
+                <input type="email" name="email" placeholder="ada@example.edu">
+              </label>
+              <label>URL:
+                <input type="url" name="website" placeholder="https://example.org">
+              </label>
+              <label>Telephone:
+                <input type="tel" name="phone" placeholder="+91 98765 43210">
+              </label>
+              <label>Search:
+                <input type="search" name="query" placeholder="Search lab notes...">
+              </label>
+              <label>Datalist (<code>&lt;datalist&gt;</code>):
+                <input type="text" name="browser" list="browser-list" placeholder="Choose or type...">
+                <datalist id="browser-list">
+                  <option value="Chromium">
+                  <option value="Firefox">
+                  <option value="Safari">
+                  <option value="Edge">
+                </datalist>
+              </label>
+              <label>Select (<code>&lt;select&gt;</code> + <code>&lt;optgroup&gt;</code>):
+                <select name="track">
+                  <optgroup label="Core Web">
+                    <option value="html5" selected>HTML5 Semantics</option>
+                    <option value="css3">CSS3 Grid &amp; Flex</option>
+                  </optgroup>
+                  <optgroup label="Backend">
+                    <option value="node">Node.js</option>
+                    <option value="python">Python FastAPI</option>
+                  </optgroup>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Numbers, Dates, Colors &amp; Live <code>&lt;output&gt;</code></legend>
+            <div class="form-grid">
+              <label>Number (<code>a</code>):
+                <input id="calc-a" type="number" name="qty" min="1" max="100" value="4">
+              </label>
+              <label>Range (<code>b</code>):
+                <input id="calc-b" type="range" name="multiplier" min="1" max="20" value="5">
+              </label>
+              <div class="output-box">
+                <span>Live Product (<code>&lt;output&gt;</code>):</span>
+                <output id="calc-result" name="result" for="calc-a calc-b">20</output>
+              </div>
+              <label>Date:
+                <input type="date" name="dob" value="2026-11-26">
+              </label>
+              <label>Time:
+                <input type="time" name="appt" value="14:30">
+              </label>
+              <label>Datetime Local:
+                <input type="datetime-local" name="schedule" value="2026-11-26T14:30">
+              </label>
+              <label>Month:
+                <input type="month" name="term" value="2026-11">
+              </label>
+              <label>Week:
+                <input type="week" name="week" value="2026-W48">
+              </label>
+              <label>Color:
+                <input type="color" name="accent" value="#38bdf8">
+              </label>
+              <label>File Upload:
+                <input type="file" name="attachment">
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Choices, Textarea, Progress &amp; Meter</legend>
+            <div class="choices-row">
+              <label class="inline-check"><input type="checkbox" name="agree" checked> Checkbox Option</label>
+              <label class="inline-check"><input type="radio" name="mode" value="standard" checked> Radio A (Standard)</label>
+              <label class="inline-check"><input type="radio" name="mode" value="advanced"> Radio B (Advanced)</label>
+            </div>
+
+            <label class="full-width">Notes (<code>&lt;textarea&gt;</code>):
+              <textarea name="notes" rows="3" placeholder="Enter experiment observations here..."></textarea>
+            </label>
+
+            <div class="two-col">
+              <div>
+                <label for="lab-progress">Completion (<code>&lt;progress&gt;</code>): <span id="progress-label">85%</span></label>
+                <progress id="lab-progress" value="85" max="100">85%</progress>
+              </div>
+              <div>
+                <label for="disk-meter">Coverage Score (<code>&lt;meter&gt;</code>):</label>
+                <meter id="disk-meter" min="0" max="100" low="40" high="80" optimum="95" value="95">95%</meter>
+              </div>
+            </div>
+
+            <input type="hidden" name="experiment_id" value="exp-01">
+
+            <div class="btn-row">
+              <button type="submit" class="btn-primary">Submit (&lt;button&gt;)</button>
+              <button type="reset" class="btn-secondary">Reset (&lt;button&gt;)</button>
+              <input type="submit" value="Input Submit" class="btn-secondary">
+              <input type="reset" value="Input Reset" class="btn-secondary">
+              <input type="button" id="ping-btn" value="Input Button" class="btn-secondary">
+              <input type="image" alt="Submit with SVG image input" title="Image submit input" width="38" height="38"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='8' fill='%2338bdf8'/%3E%3Cpath d='M12 19h14m-5-5 5 5-5 5' stroke='%230f172a' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+            </div>
+            <p class="hint" id="form-feedback">Submit or interact with controls above to see live validation feedback.</p>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- 12. Interactive Elements -->
+      <section id="interactive" class="card" data-tags="details dialog summary">
+        <header class="section-header">
+          <h2>12. Interactive Disclosure &amp; Modal Dialog</h2>
+          <p class="tag-list"><code>&lt;details&gt;</code> <code>&lt;summary&gt;</code> <code>&lt;dialog&gt;</code></p>
+        </header>
+
+        <details open>
+          <summary>What makes HTML5 different from HTML4? (<code>&lt;details&gt;</code> + <code>&lt;summary&gt;</code>)</summary>
+          <p>HTML5 introduced semantic layout regions, native audio/video playback, 2D canvas, local storage APIs, richer form input types with built-in validation, and native interactive elements such as <code>&lt;details&gt;</code> and <code>&lt;dialog&gt;</code> without third-party plugins.</p>
+        </details>
+
+        <details>
+          <summary>Why are obsolete tags like &lt;font&gt; or &lt;marquee&gt; excluded?</summary>
+          <p>Presentation and animation belong in CSS, not HTML markup. Using standard HTML5 keeps the document accessible, maintainable, and compliant with the WHATWG Living Standard.</p>
+        </details>
+
+        <div class="btn-row">
+          <button id="open-dialog" type="button" class="btn-primary">Open Native &lt;dialog&gt; Modal</button>
+        </div>
+
+        <dialog id="info-dialog" aria-labelledby="dialog-title">
+          <h3 id="dialog-title">Native HTML5 <code>&lt;dialog&gt;</code></h3>
+          <p>This modal uses the browser&rsquo;s top layer via <code>dialog.showModal()</code>, supporting <kbd>Esc</kbd> to dismiss and backdrop styling.</p>
+          <form method="dialog">
+            <button type="submit" class="btn-primary">Close Dialog</button>
+          </form>
+        </dialog>
+      </section>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="card sticky-card">
+        <h2>About This Lab (<code>&lt;aside&gt;</code>)</h2>
+        <p>Every section on this page uses semantic HTML5 landmarks so screen readers, search engines, and developers can navigate cleanly.</p>
+        <ul>
+          <li><strong>Zero external CDNs:</strong> Works offline directly in your browser.</li>
+          <li><strong>Live DOM audit:</strong> The header badge counts unique HTML5 tag names present on the page.</li>
+          <li><strong>Interactive demos:</strong> Try the image map, canvas animation, live video stream, form calculator, and modal dialog.</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <address>
+        Authored for Backend Development Lab &mdash; Experiment 1<br>
+        Contact: <a href="mailto:lab@example.edu">lab@example.edu</a>
+      </address>
+      <p><small>&copy; <time datetime="2026">2026</time> HTML5 Complete Elements Showcase.</small></p>
+    </div>
+  </footer>
+</body>
+</html>

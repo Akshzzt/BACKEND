@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+  <student id="101">
+    <name>Aarav</name>
+    <course>B.Tech CSE</course>
+    <email>aarav.sharma@upes.ac.in</email>
+    <semester>6</semester>
+  </student>
+  <student id="102">
+    <name>Meera</name>
+    <course>B.Tech IT</course>
+    <email>meera.nair@upes.ac.in</email>
+    <semester>6</semester>
+  </student>
+  <student id="103">
+    <name>Kabir</name>
+    <course>B.Tech CSE</course>
+    <email>kabir.verma@upes.ac.in</email>
+    <semester>4</semester>
+  </student>
+  <student id="104">
+    <name>Ananya</name>
+    <course>B.Tech AI &amp; ML</course>
+    <email>ananya.gupta@upes.ac.in</email>
+    <semester>6</semester>
+  </student>
+  <student id="105">
+    <name>Rohan</name>
+    <course>B.Tech IT</course>
+    <email>rohan.mehta@upes.ac.in</email>
+    <semester>4</semester>
+  </student>
+</students>

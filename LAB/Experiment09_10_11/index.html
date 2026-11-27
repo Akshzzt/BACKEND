@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student &amp; Course Directory — Experiment 09–11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Student Directory</h1>
+    <p class="subtitle">Experiment 09, 10 &amp; 11: AJAX (Fetch API &amp; jQuery), XML, JSON, and Backend API Integration</p>
+
+    <div class="controls">
+      <button id="loadJson" type="button">Load JSON (Fetch API)</button>
+      <button id="loadXml" type="button">Load XML (DOMParser)</button>
+      <button id="loadJquery" class="secondary" type="button">Load JSON (jQuery $.ajax)</button>
+      <button id="loadApi" class="secondary" type="button">Load Backend API (/api/students)</button>
+    </div>
+
+    <div class="filters">
+      <input type="search" id="searchInput" placeholder="Search loaded students by name (Practice Task 2)...">
+      <select id="courseSelect" aria-label="Select course">
+        <option value="">All Courses</option>
+        <option value="B.Tech CSE">B.Tech CSE</option>
+        <option value="B.Tech IT">B.Tech IT</option>
+        <option value="B.Tech AI & ML">B.Tech AI &amp; ML</option>
+      </select>
+      <button id="filterJsBtn" class="outline" type="button">Filter Course (JS)</button>
+      <button id="filterJqBtn" class="outline" type="button">Filter Course (jQuery)</button>
+    </div>
+
+    <p id="status" role="status">Select an option to load student data.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Email</th>
+            <th>Semester</th>
+          </tr>
+        </thead>
+        <tbody id="studentTable">
+          <!-- JavaScript inserts student records here -->
+        </tbody>
+      </table>
+    </div>
+
+    <section class="section-divider">
+      <div class="controls" style="justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0;">Course Directory (Practice Task 4)</h2>
+        <button id="loadCourses" type="button">Load Courses (AJAX)</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Title</th>
+              <th>Credits</th>
+              <th>Instructor</th>
+              <th>Semester</th>
+            </tr>
+          </thead>
+          <tbody id="courseTable">
+            <!-- JavaScript inserts course records here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

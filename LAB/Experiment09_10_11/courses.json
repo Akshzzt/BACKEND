@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "code": "CSFS3008P",
+      "title": "Backend Development Laboratory",
+      "credits": 2,
+      "instructor": "Dr. S. Kulkarni",
+      "semester": 6
+    },
+    {
+      "code": "CSEG3012",
+      "title": "Database Management Systems",
+      "credits": 4,
+      "instructor": "Prof. R. Joshi",
+      "semester": 4
+    },
+    {
+      "code": "CSEG3045",
+      "title": "Web Technologies & APIs",
+      "credits": 3,
+      "instructor": "Dr. N. Kapoor",
+      "semester": 6
+    },
+    {
+      "code": "CSAI3021",
+      "title": "Applied Machine Learning",
+      "credits": 4,
+      "instructor": "Dr. P. Verma",
+      "semester": 6
+    },
+    {
+      "code": "CSIT2014",
+      "title": "Computer Networks",
+      "credits": 3,
+      "instructor": "Prof. A. Sen",
+      "semester": 4
+    }
+  ]
+}

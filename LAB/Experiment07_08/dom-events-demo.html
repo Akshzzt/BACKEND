@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM &amp; Events Playground — Experiment 07 &amp; 08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .container { max-width: 960px; margin: 0 auto; display: grid; gap: 1.25rem; }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    button.secondary { background: #475569; }
+    input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      margin-bottom: 0.65rem;
+    }
+    .box {
+      padding: 1rem;
+      border: 2px dashed #94a3b8;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    .highlight {
+      background-color: #dbeafe;
+      border-color: #2563eb;
+      font-weight: 600;
+    }
+    .dynamic-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .pill {
+      background: #e2e8f0;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .pill.done { text-decoration: line-through; background: #bbf7d0; }
+    .outer-box {
+      padding: 1rem;
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+    }
+    pre {
+      margin: 0;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    a.back { color: var(--primary); font-weight: 600; text-decoration: none; }
+    a.back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="header-row">
+      <h1 style="margin: 0;">Part B &amp; C: DOM Manipulation &amp; Event Handling</h1>
+      <a class="back" href="index.html">← Back to To-Do App</a>
+    </div>
+
+    <section class="grid-2">
+      <!-- Part B: DOM Manipulation -->
+      <div class="card">
+        <h2 style="margin-top: 0;">DOM Manipulation</h2>
+        <div id="demoBox" class="box">Original DOM Box Content</div>
+        <div>
+          <button id="changeTextBtn" type="button">Change Text</button>
+          <button id="toggleClassBtn" type="button">Toggle Highlight</button>
+          <button id="addNodeBtn" type="button">Append Node</button>
+          <button id="removeNodeBtn" class="secondary" type="button">Remove Last</button>
+        </div>
+        <div id="nodeList" class="dynamic-container">
+          <span class="pill">Item 1 (click via delegation)</span>
+          <span class="pill">Item 2 (click via delegation)</span>
+        </div>
+      </div>
+
+      <!-- Part C: Form, Keyboard & Bubbling Events -->
+      <div class="card">
+        <h2 style="margin-top: 0;">Events, Bubbling &amp; Forms</h2>
+        <form id="demoForm">
+          <input type="text" id="liveInput" placeholder="Type here to see live input/keydown events..." required>
+          <button type="submit">Submit Form (preventDefault)</button>
+        </form>
+        <p id="livePreview" style="margin: 0.5rem 0 1rem; color: var(--muted); font-size: 0.9rem;">
+          Live value: (empty)
+        </p>
+
+        <div id="outerZone" class="outer-box">
+          <strong>Outer Container (Click bubbles here)</strong><br><br>
+          <button id="bubbleBtn" type="button">Bubble Click</button>
+          <button id="stopBtn" class="secondary" type="button">stopPropagation()</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="header-row" style="margin-bottom: 0.5rem;">
+        <h2 style="margin: 0;">Event &amp; DOM Log</h2>
+        <button id="clearLogBtn" class="secondary" type="button">Clear Log</button>
+      </div>
+      <pre id="eventLog"></pre>
+    </section>
+  </main>
+
+  <script src="dom-events-demo.js"></script>
+</body>
+</html>

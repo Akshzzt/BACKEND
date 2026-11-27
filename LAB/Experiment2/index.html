@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experiment 2: Web page demonstrating all types of Cascading Style Sheets (Inline, Internal, External, Imported, and Print CSS) plus selectors and cascade precedence.">
+  <title>Experiment 2: All Types of Cascading Style Sheets (CSS)</title>
+
+  <!-- 1. EXTERNAL CSS via <link> -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- 2. MEDIA-SPECIFIC EXTERNAL PRINT CSS -->
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <!-- 3. INTERNAL (EMBEDDED) CSS via <style> -->
+  <style>
+    .internal-card {
+      background: rgba(251, 191, 36, 0.08);
+      border: 2px solid var(--int-accent);
+      border-radius: 12px;
+      padding: 1.1rem;
+    }
+
+    .internal-card h3 {
+      margin-top: 0;
+      color: var(--int-accent);
+    }
+
+    .badge-internal {
+      background: rgba(251, 191, 36, 0.2);
+      color: var(--int-accent);
+      border: 1px solid var(--int-accent);
+    }
+
+    /* Internal rule overriding external .cascade-demo (same specificity, declared later) */
+    .cascade-demo.internal-wins {
+      color: var(--int-accent);
+      border-color: var(--int-accent);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Backend Development Lab &bull; Experiment 2</p>
+      <h1>All Types of Cascading Style Sheets (CSS)</h1>
+      <p class="subtitle">Demonstrating External, Imported (<code>@import</code>), Internal (<code>&lt;style&gt;</code>), Inline (<code>style="..."</code>), and Print (<code>media="print"</code>) stylesheets alongside cascade precedence and CSS selector types.</p>
+
+      <nav class="top-nav" aria-label="Page sections">
+        <a href="#core-types">1. Core CSS Types</a>
+        <a href="#cascade">2. Cascade &amp; Specificity</a>
+        <a href="#selectors">3. CSS Selectors</a>
+        <a href="#layout-effects">4. Box Model, Flex, Grid &amp; Animation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Section 1: The Core Types of CSS -->
+    <section id="core-types" class="section-card">
+      <h2>1. Types of Cascading Style Sheets</h2>
+      <div class="three-types-grid">
+        <!-- External CSS -->
+        <article class="external-card">
+          <span class="css-badge badge-external">External CSS</span>
+          <h3>Linked Stylesheet (<code>&lt;link&gt;</code>)</h3>
+          <p>Styled from <code>styles.css</code> linked in the <code>&lt;head&gt;</code>. Best for multi-page consistency, caching, and clean separation of structure and presentation.</p>
+          <p><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></p>
+        </article>
+
+        <!-- Internal / Embedded CSS -->
+        <article class="internal-card">
+          <span class="css-badge badge-internal">Internal CSS</span>
+          <h3>Embedded Block (<code>&lt;style&gt;</code>)</h3>
+          <p>Styled by CSS rules inside the <code>&lt;style&gt;</code> element in <code>&lt;head&gt;</code>. Applies to this single HTML document without extra HTTP requests.</p>
+          <p><code>&lt;style&gt; .internal-card { ... } &lt;/style&gt;</code></p>
+        </article>
+
+        <!-- Inline CSS -->
+        <article style="background: rgba(251, 113, 133, 0.08); border: 2px solid #fb7185; border-radius: 12px; padding: 1.1rem;">
+          <span style="display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.55rem; border-radius: 999px; margin-bottom: 0.5rem; background: rgba(251, 113, 133, 0.2); color: #fb7185; border: 1px solid #fb7185;">Inline CSS</span>
+          <h3 style="margin-top: 0; color: #fb7185;">Element Attribute (<code style="color: #fda4af;">style="..."</code>)</h3>
+          <p style="margin-bottom: 0.65rem;">Styled directly on this <code>&lt;article&gt;</code> and its children using the HTML <code>style</code> attribute. Overrides external and internal rules on this element.</p>
+          <p style="margin: 0;"><code>&lt;article style="border: 2px solid #fb7185;"&gt;</code></p>
+        </article>
+      </div>
+
+      <!-- Imported CSS + Media Print CSS -->
+      <div class="imported-banner">
+        <strong>@import &amp; Media Stylesheets:</strong>
+        <code>styles.css</code> imports shared theme variables and this banner from <code>imported.css</code> via <code>@import url("imported.css");</code>, while <code>&lt;link rel="stylesheet" href="print.css" media="print"&gt;</code> switches to a clean black-on-white print layout when printing (<kbd>Ctrl+P</kbd>).
+      </div>
+    </section>
+
+    <!-- Section 2: Cascade & Specificity -->
+    <section id="cascade" class="section-card">
+      <h2>2. Cascade Order &amp; Specificity Precedence</h2>
+      <p>All five boxes below start with the external <code>.cascade-demo</code> class (sky blue). Watch how later rules, higher specificity, inline styles, and <code>!important</code> override it:</p>
+
+      <div class="cascade-demo">1. <strong>External CSS only</strong> (<code>.cascade-demo</code>) &rarr; Sky Blue</div>
+      <div class="cascade-demo internal-wins">2. <strong>Internal CSS wins over External</strong> (<code>.cascade-demo.internal-wins</code>) &rarr; Amber</div>
+      <div id="id-wins" class="cascade-demo internal-wins">3. <strong>ID Selector wins over Class</strong> (<code>#id-wins</code>) &rarr; Purple</div>
+      <div id="id-wins-inline" class="cascade-demo internal-wins" style="color: #fb7185; border-color: #fb7185;">4. <strong>Inline Style wins over ID &amp; Internal</strong> (<code>style="color: #fb7185;"</code>) &rarr; Rose</div>
+      <div class="cascade-demo important-wins" style="color: #fb7185; border-color: #fb7185;">5. <strong><code>!important</code> overrides Inline Style</strong> (<code>color: var(--imp-accent) !important;</code>) &rarr; Emerald</div>
+
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Selector / Style Type</th>
+            <th>Example</th>
+            <th>Specificity Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Universal &amp; Combinators</td>
+            <td><code>*</code>, <code>&gt;</code>, <code>+</code>, <code>~</code></td>
+            <td>0-0-0 (0)</td>
+          </tr>
+          <tr>
+            <td>Type / Pseudo-element</td>
+            <td><code>p</code>, <code>::before</code></td>
+            <td>0-0-1 (1)</td>
+          </tr>
+          <tr>
+            <td>Class / Attribute / Pseudo-class</td>
+            <td><code>.card</code>, <code>[data-css-origin]</code>, <code>:hover</code></td>
+            <td>0-1-0 (10)</td>
+          </tr>
+          <tr>
+            <td>ID Selector</td>
+            <td><code>#id-wins</code></td>
+            <td>1-0-0 (100)</td>
+          </tr>
+          <tr>
+            <td>Inline <code>style</code> Attribute</td>
+            <td><code>style="color: #fb7185;"</code></td>
+            <td>1-0-0-0 (1000)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 3: CSS Selector Types -->
+    <section id="selectors" class="section-card">
+      <h2>3. Types of CSS Selectors</h2>
+      <div class="selector-grid">
+        <div class="selector-box combinator-scope">
+          <h3>Combinator Selectors</h3>
+          <p>Direct child (<code>.combinator-scope &gt; p</code>) gets a blue left border.</p>
+          <div class="combinator-anchor">Anchor Element</div>
+          <p>Adjacent sibling (<code>+ p</code>) turns amber.</p>
+          <small>General sibling (<code>~ small</code>) turns emerald.</small>
+        </div>
+
+        <div class="selector-box">
+          <h3>Attribute Selectors</h3>
+          <div data-css-origin="external"><code>[data-css-origin="external"]</code></div>
+          <div data-css-origin="inline"><code>[data-css-origin="inline"]</code></div>
+          <div data-css-origin="print"><code>[data-css-origin]</code> (generic match)</div>
+        </div>
+
+        <div class="selector-box">
+          <h3>Pseudo-classes &amp; Pseudo-elements</h3>
+          <p class="pseudo-quote">Hover the list below or select this quote text to inspect <code>::before</code>, <code>::after</code>, <code>::first-letter</code>, and <code>::selection</code>.</p>
+          <ul class="pseudo-list">
+            <li>Odd row styled via <code>:nth-child(odd)</code></li>
+            <li>Even row — hover for <code>:hover</code></li>
+            <li>Odd row styled via <code>:nth-child(odd)</code></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Box Model, Flexbox, Grid & Animation -->
+    <section id="layout-effects" class="section-card">
+      <h2>4. Box Model, Flexbox, CSS Grid &amp; Keyframe Animation</h2>
+      <div class="selector-grid">
+        <div class="selector-box">
+          <h3>CSS Box Model</h3>
+          <div class="box-model-outer">
+            Margin / Padding Layer
+            <div class="box-model-border">
+              Border (6px solid)
+              <div class="box-model-content">Content Box</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="selector-box">
+          <h3>Flexbox (<code>display: flex</code>)</h3>
+          <div class="flex-demo">
+            <div class="flex-item">Flex 1</div>
+            <div class="flex-item">Flex 2</div>
+            <div class="flex-item">Flex 3</div>
+          </div>
+          <div class="animated-pill"><code>@keyframes pulseGlow</code> animation</div>
+        </div>
+
+        <div class="selector-box">
+          <h3>CSS Grid (<code>display: grid</code>)</h3>
+          <div class="grid-demo">
+            <div class="grid-cell">1</div>
+            <div class="grid-cell">2</div>
+            <div class="grid-cell">3</div>
+            <div class="grid-cell">4</div>
+            <div class="grid-cell">5</div>
+            <div class="grid-cell">6</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      Experiment 2 &bull; Pure HTML5 + CSS3 (External, Imported, Internal, Inline &amp; Print Stylesheets)
+    </div>
+  </footer>
+</body>
+</html>

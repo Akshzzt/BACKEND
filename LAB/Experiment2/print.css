@@ -1,0 +1,24 @@
+/* print.css — Media-Specific Print Stylesheet (media="print") */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  .top-nav,
+  .animated-pill {
+    display: none !important;
+  }
+
+  .section-card,
+  .external-card,
+  .internal-card {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #444444 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+}

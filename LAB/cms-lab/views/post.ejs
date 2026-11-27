@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="post">
+
+    <h1><%= post.title %></h1>
+
+    <p>
+        <strong>Author:</strong>
+        <%= post.author %>
+    </p>
+
+    <p>
+        <strong>Created:</strong>
+        <%= post.createdAt.toLocaleString() %>
+    </p>
+
+    <hr>
+
+    <p>
+        <%= post.content %>
+    </p>
+
+</div>
+
+<a href="/">Back to Posts</a>
+
+</body>
+</html>

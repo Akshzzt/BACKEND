@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Django To-Do App{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  {% include 'todo/partials/_navbar.html' %}
+
+  <main class="main-container">
+    <div class="card">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  {% include 'todo/partials/_footer.html' %}
+  <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

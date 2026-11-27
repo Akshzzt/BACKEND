@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiment 04 — Bootstrap vs Tailwind CSS</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --bs: #7952b3;
+      --tw: #0284c7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      background: #0f172a;
+      color: #fff;
+      padding: 1.5rem 1.25rem;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    header h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.5rem;
+    }
+    header p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    main {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .badge-bs { background: var(--bs); }
+    .badge-tw { background: var(--tw); }
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.15rem;
+    }
+    .card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-bs { background: var(--bs); }
+    .btn-tw { background: var(--tw); }
+    .btn-dark { background: #1e293b; }
+    .btn-outline {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline.active {
+      background: #0f172a;
+      color: #fff;
+      border-color: #0f172a;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-weight: 600; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1rem;
+    }
+    .frame-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .frame-head {
+      padding: 0.65rem 1rem;
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .frame-stage {
+      display: flex;
+      justify-content: center;
+      background: #e2e8f0;
+      padding: 0.75rem;
+    }
+    iframe {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      height: 540px;
+      width: 100%;
+      transition: width 0.2s ease;
+    }
+    .mobile-mode iframe {
+      width: 390px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Experiment 04: Responsive Web Pages with Bootstrap &amp; Tailwind CSS</h1>
+      <p>Side-by-side implementation of Tasks 1–8 and Exercises 1–3</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid-2">
+      <div class="card">
+        <span class="badge badge-bs">Part A • Bootstrap 5.3.3</span>
+        <h2>exp04-bootstrap.html</h2>
+        <p>Component-based layout featuring a collapsible navbar, 12-column hero section, equal-height service cards, and a responsive contact form (Exercise 1).</p>
+        <a class="btn btn-bs" href="exp04-bootstrap.html">Open Bootstrap Page</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-tw">Part B • Tailwind CSS</span>
+        <h2>exp04-tailwind.html</h2>
+        <p>Utility-first implementation of the exact same layout with responsive flex/grid utilities, hover transitions, mobile menu toggle, and contact form (Exercise 2).</p>
+        <a class="btn btn-tw" href="exp04-tailwind.html">Open Tailwind Page</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-bottom: 1.5rem;">
+      <h2 style="margin-top: 0;">Exercise 3 — Class Count &amp; Readability Comparison</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>exp04-bootstrap.html</th>
+            <th>exp04-tailwind.html</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total CSS class tokens used</td>
+            <td><strong>140</strong></td>
+            <td><strong>250</strong></td>
+          </tr>
+          <tr>
+            <td>Unique CSS class names</td>
+            <td>70</td>
+            <td>102</td>
+          </tr>
+          <tr>
+            <td>Elements with <code>class</code> attribute</td>
+            <td>73</td>
+            <td>52</td>
+          </tr>
+          <tr>
+            <td>Total HTML lines</td>
+            <td>137</td>
+            <td>149</td>
+          </tr>
+          <tr>
+            <td>Readability observation</td>
+            <td>More semantic component names (<code>card</code>, <code>form-control</code>, <code>navbar</code>) and fewer classes per element (~1.9 avg).</td>
+            <td>Longer utility chains per element (~4.8 avg), but exact visual styling is visible directly in HTML without inspecting external CSS.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="toolbar">
+        <h2 style="margin: 0; font-size: 1.2rem;">Side-by-Side Live Preview</h2>
+        <div style="display: flex; gap: 0.5rem;">
+          <button id="desktopBtn" class="btn btn-outline active" type="button">Desktop Width</button>
+          <button id="mobileBtn" class="btn btn-outline" type="button">Mobile Width (390px)</button>
+        </div>
+      </div>
+
+      <div id="previewGrid" class="preview-grid">
+        <div class="frame-wrap">
+          <div class="frame-head">
+            <span>Bootstrap 5</span>
+            <a href="exp04-bootstrap.html" target="_blank" style="font-size: 0.82rem; color: var(--bs);">Open tab ↗</a>
+          </div>
+          <div class="frame-stage">
+            <iframe src="exp04-bootstrap.html" title="Bootstrap Responsive Page"></iframe>
+          </div>
+        </div>
+        <div class="frame-wrap">
+          <div class="frame-head">
+            <span>Tailwind CSS</span>
+            <a href="exp04-tailwind.html" target="_blank" style="font-size: 0.82rem; color: var(--tw);">Open tab ↗</a>
+          </div>
+          <div class="frame-stage">
+            <iframe src="exp04-tailwind.html" title="Tailwind Responsive Page"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const previewGrid = document.getElementById('previewGrid');
+    const desktopBtn = document.getElementById('desktopBtn');
+    const mobileBtn = document.getElementById('mobileBtn');
+
+    desktopBtn.addEventListener('click', function () {
+      previewGrid.classList.remove('mobile-mode');
+      desktopBtn.classList.add('active');
+      mobileBtn.classList.remove('active');
+    });
+
+    mobileBtn.addEventListener('click', function () {
+      previewGrid.classList.add('mobile-mode');
+      mobileBtn.classList.add('active');
+      desktopBtn.classList.remove('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exp 5: JavaScript Demo — Arrays, Objects &amp; Functions</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      background: #0f172a;
+      color: #fff;
+      padding: 1.5rem 1.25rem;
+    }
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: #cbd5e1; font-size: 0.95rem; }
+    main { padding: 1.5rem 1.25rem 3rem; display: grid; gap: 1.25rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    }
+    h2 { margin: 0 0 0.75rem; font-size: 1.15rem; }
+    pre {
+      margin: 0;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.3rem; }
+    input {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      margin-bottom: 0.75rem;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    .book-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .book-list li {
+      padding: 0.6rem 0.8rem;
+      background: #f1f5f9;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+    .status {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Exp 5: JavaScript Demo</h1>
+      <p>Arrays, Objects, Functions, and PBL Library Manager. Open DevTools (F12) or view the mirrored output below.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>PBL Activity: Library Book Manager (<code>library.js</code>)</h2>
+      <div class="grid-2">
+        <form id="addBookForm">
+          <label for="bookTitle">Book Title</label>
+          <input id="bookTitle" type="text" placeholder="e.g. Designing Data-Intensive Applications" required>
+          <label for="bookAuthor">Author</label>
+          <input id="bookAuthor" type="text" placeholder="e.g. Martin Kleppmann" required>
+          <button type="submit">Add Book</button>
+          <p id="addStatus" class="status"></p>
+        </form>
+
+        <form id="findBookForm">
+          <label for="searchTitle">Find Book by Title</label>
+          <input id="searchTitle" type="text" placeholder="e.g. Clean Code" required>
+          <button type="submit">Find Book</button>
+          <p id="findStatus" class="status"></p>
+        </form>
+      </div>
+      <h3 style="margin: 1rem 0 0.25rem; font-size: 1rem;">Current Library Collection</h3>
+      <ul id="libraryList" class="book-list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Mirrored Console Output (<code>script.js</code>, <code>script2.js</code>, <code>library.js</code>)</h2>
+      <pre id="consoleOutput"></pre>
+    </section>
+  </main>
+
+  <script>
+    const outputEl = document.getElementById('consoleOutput');
+    const originalLog = console.log.bind(console);
+    console.log = function (...args) {
+      originalLog(...args);
+      const formatted = args.map((item) =>
+        typeof item === 'object' && item !== null ? JSON.stringify(item) : String(item)
+      ).join(' ');
+      outputEl.textContent += formatted + '\n';
+    };
+  </script>
+  <script src="script.js"></script>
+  <script src="script2.js"></script>
+  <script src="library.js"></script>
+  <script>
+    const listEl = document.getElementById('libraryList');
+    const addStatus = document.getElementById('addStatus');
+    const findStatus = document.getElementById('findStatus');
+
+    function renderLibrary() {
+      listEl.innerHTML = '';
+      library.forEach((book, idx) => {
+        const li = document.createElement('li');
+        li.textContent = `${idx + 1}. "${book.title}" — ${book.author}`;
+        listEl.appendChild(li);
+      });
+    }
+
+    document.getElementById('addBookForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      try {
+        const title = document.getElementById('bookTitle').value;
+        const author = document.getElementById('bookAuthor').value;
+        const added = addBook(title, author);
+        addStatus.textContent = `Added "${added.title}" by ${added.author}.`;
+        this.reset();
+        renderLibrary();
+      } catch (err) {
+        addStatus.textContent = err.message;
+      }
+    });
+
+    document.getElementById('findBookForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const query = document.getElementById('searchTitle').value;
+      const match = findBook(query);
+      findStatus.textContent = match
+        ? `Found: "${match.title}" by ${match.author}`
+        : `No book found matching "${query}".`;
+    });
+
+    renderLibrary();
+  </script>
+</body>
+</html>

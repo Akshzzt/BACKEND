@@ -1,0 +1,15 @@
+<li class="task-item">
+  {% if task.completed %}
+    <s class="task-title completed">{{ task.title }}</s>
+  {% else %}
+    <span class="task-title">{{ task.title }}</span>
+  {% endif %}
+  <div class="task-actions">
+    <a class="btn btn-sm btn-success" href="{% url 'toggle_task' task.id %}">
+      {% if task.completed %}Undo{% else %}Complete{% endif %}
+    </a>
+    <a class="btn btn-sm btn-danger" href="{% url 'delete_task' task.id %}" data-confirm-delete>
+      Delete
+    </a>
+  </div>
+</li>
